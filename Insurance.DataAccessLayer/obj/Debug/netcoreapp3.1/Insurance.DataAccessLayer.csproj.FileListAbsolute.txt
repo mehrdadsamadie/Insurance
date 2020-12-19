@@ -1,0 +1,13 @@
+D:\Insurance\Insurance\Insurance.DataAccessLayer\bin\Debug\netcoreapp3.1\Insurance.DataAccessLayer.deps.json
+D:\Insurance\Insurance\Insurance.DataAccessLayer\bin\Debug\netcoreapp3.1\Insurance.DataAccessLayer.runtimeconfig.json
+D:\Insurance\Insurance\Insurance.DataAccessLayer\bin\Debug\netcoreapp3.1\Insurance.DataAccessLayer.runtimeconfig.dev.json
+D:\Insurance\Insurance\Insurance.DataAccessLayer\bin\Debug\netcoreapp3.1\Insurance.DataAccessLayer.dll
+D:\Insurance\Insurance\Insurance.DataAccessLayer\bin\Debug\netcoreapp3.1\Insurance.DataAccessLayer.pdb
+D:\Insurance\Insurance\Insurance.DataAccessLayer\bin\Debug\netcoreapp3.1\Insurance.Entity.dll
+D:\Insurance\Insurance\Insurance.DataAccessLayer\bin\Debug\netcoreapp3.1\Insurance.Entity.pdb
+D:\Insurance\Insurance\Insurance.DataAccessLayer\obj\Debug\netcoreapp3.1\Insurance.DataAccessLayer.csprojAssemblyReference.cache
+D:\Insurance\Insurance\Insurance.DataAccessLayer\obj\Debug\netcoreapp3.1\Insurance.DataAccessLayer.AssemblyInfoInputs.cache
+D:\Insurance\Insurance\Insurance.DataAccessLayer\obj\Debug\netcoreapp3.1\Insurance.DataAccessLayer.AssemblyInfo.cs
+D:\Insurance\Insurance\Insurance.DataAccessLayer\obj\Debug\netcoreapp3.1\Insurance.DataAccessLayer.csproj.CopyComplete
+D:\Insurance\Insurance\Insurance.DataAccessLayer\obj\Debug\netcoreapp3.1\Insurance.DataAccessLayer.dll
+D:\Insurance\Insurance\Insurance.DataAccessLayer\obj\Debug\netcoreapp3.1\Insurance.DataAccessLayer.pdb

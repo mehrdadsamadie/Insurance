@@ -1,0 +1,13 @@
+D:\Insurance\Insurance\Insurance.BusinessLogicLayer\bin\Debug\netcoreapp3.1\Insurance.BusinessLogicLayer.deps.json
+D:\Insurance\Insurance\Insurance.BusinessLogicLayer\bin\Debug\netcoreapp3.1\Insurance.BusinessLogicLayer.dll
+D:\Insurance\Insurance\Insurance.BusinessLogicLayer\bin\Debug\netcoreapp3.1\Insurance.BusinessLogicLayer.pdb
+D:\Insurance\Insurance\Insurance.BusinessLogicLayer\bin\Debug\netcoreapp3.1\Insurance.DataAccessLayer.dll
+D:\Insurance\Insurance\Insurance.BusinessLogicLayer\bin\Debug\netcoreapp3.1\Insurance.Entity.dll
+D:\Insurance\Insurance\Insurance.BusinessLogicLayer\bin\Debug\netcoreapp3.1\Insurance.DataAccessLayer.pdb
+D:\Insurance\Insurance\Insurance.BusinessLogicLayer\bin\Debug\netcoreapp3.1\Insurance.Entity.pdb
+D:\Insurance\Insurance\Insurance.BusinessLogicLayer\obj\Debug\netcoreapp3.1\Insurance.BusinessLogicLayer.csprojAssemblyReference.cache
+D:\Insurance\Insurance\Insurance.BusinessLogicLayer\obj\Debug\netcoreapp3.1\Insurance.BusinessLogicLayer.AssemblyInfoInputs.cache
+D:\Insurance\Insurance\Insurance.BusinessLogicLayer\obj\Debug\netcoreapp3.1\Insurance.BusinessLogicLayer.AssemblyInfo.cs
+D:\Insurance\Insurance\Insurance.BusinessLogicLayer\obj\Debug\netcoreapp3.1\Insurance.BusinessLogicLayer.csproj.CopyComplete
+D:\Insurance\Insurance\Insurance.BusinessLogicLayer\obj\Debug\netcoreapp3.1\Insurance.BusinessLogicLayer.dll
+D:\Insurance\Insurance\Insurance.BusinessLogicLayer\obj\Debug\netcoreapp3.1\Insurance.BusinessLogicLayer.pdb
