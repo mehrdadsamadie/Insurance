@@ -2383,6 +2383,21 @@
         "runtime": {
           "bin/placeholder/Insurance.Entity.dll": {}
         }
+      },
+      "Insurance.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Insurance.BusinessLogicLayer": "1.0.0",
+          "Insurance.DataAccessLayer": "1.0.0",
+          "Insurance.Entity": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Insurance.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Insurance.Service.dll": {}
+        }
       }
     }
   },
@@ -7969,13 +7984,16 @@
       "type": "project",
       "path": "../Insurance.Entity/Insurance.Entity.csproj",
       "msbuildProject": "../Insurance.Entity/Insurance.Entity.csproj"
+    },
+    "Insurance.Service/1.0.0": {
+      "type": "project",
+      "path": "../Insurance.Service/Insurance.Service.csproj",
+      "msbuildProject": "../Insurance.Service/Insurance.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Insurance.BusinessLogicLayer >= 1.0.0",
-      "Insurance.DataAccessLayer >= 1.0.0",
-      "Insurance.Entity >= 1.0.0",
+      "Insurance.Service >= 1.0.0",
       "Microsoft.AspNet.WebApi >= 5.2.7",
       "Microsoft.AspNetCore.Cors >= 2.2.0",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.1",
@@ -8017,14 +8035,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Insurance\\Insurance\\Insurance.BusinessLogicLayer\\Insurance.BusinessLogicLayer.csproj": {
-              "projectPath": "D:\\Insurance\\Insurance\\Insurance.BusinessLogicLayer\\Insurance.BusinessLogicLayer.csproj"
-            },
-            "D:\\Insurance\\Insurance\\Insurance.DataAccessLayer\\Insurance.DataAccessLayer.csproj": {
-              "projectPath": "D:\\Insurance\\Insurance\\Insurance.DataAccessLayer\\Insurance.DataAccessLayer.csproj"
-            },
-            "D:\\Insurance\\Insurance\\Insurance.Entity\\Insurance.Entity.csproj": {
-              "projectPath": "D:\\Insurance\\Insurance\\Insurance.Entity\\Insurance.Entity.csproj"
+            "D:\\Insurance\\Insurance\\Insurance.Service\\Insurance.Service.csproj": {
+              "projectPath": "D:\\Insurance\\Insurance\\Insurance.Service\\Insurance.Service.csproj"
             }
           }
         }

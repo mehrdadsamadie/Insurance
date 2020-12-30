@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Insurance.BusinessLogicLayer;
 using Insurance.DataAccessLayer;
+using Insurance.Entity;
+using Insurance.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,10 +34,32 @@ namespace Insurance.Web
             services.AddControllers().AddJsonOptions(opts => { 
                 opts.JsonSerializerOptions.PropertyNamingPolicy = null;
                 
-            }); 
-            services.AddScoped<IWrapperRepository, WrapperRepository>();
+            });
+            //   services.AddScoped<IWrapperService, IWrapperService>();
+
+
+            services.AddScoped(typeof(IAdvisorRepository), typeof(AdvisorRepository));
+            services.AddScoped(typeof(ICarrierRepository), typeof(CarrierRepository));
+            services.AddScoped(typeof(IContractRepository), typeof(ContractRepository));
+            services.AddScoped(typeof(IMGARepository), typeof(MGARepository));
+
+
+            services.AddTransient<IAdvisorService, AdvisorService>();
+            services.AddTransient<ICarrierService, CarrierService>();
+            services.AddTransient<IContractService, ContractService>();
+            services.AddTransient<IMGAService, MGAService>();
+
+
+
+
+
             services.AddDbContext<InsuranceContext>(item => item.UseSqlServer(Configuration.GetConnectionString("InsuranceContext")));
-            services.AddCors(); // Make sure you call this previous to AddMvc
+             services.AddCors(); // Make sure you call this previous to AddMvc
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AllowOrigin",
+            //        builder => builder.WithOrigins("https://insuranceapp.azurewebsites.net"));
+            //});
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -47,7 +71,7 @@ namespace Insurance.Web
                 app.UseDeveloperExceptionPage();
             }
 
-            
+            app.UseCors(options => options.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
             app.Use(async (context, next) =>
             {
                 await next();
@@ -61,7 +85,7 @@ namespace Insurance.Web
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseRouting();
-            app.UseCors(options => options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
+      
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

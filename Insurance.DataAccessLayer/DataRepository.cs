@@ -41,5 +41,9 @@ namespace Insurance.DataAccessLayer
         {
             this.insuranceContext.Set<T>().Remove(entity);
         }
+        public void SaveChanges()
+        {
+            this.insuranceContext.SaveChanges();
+        }
     }
 }

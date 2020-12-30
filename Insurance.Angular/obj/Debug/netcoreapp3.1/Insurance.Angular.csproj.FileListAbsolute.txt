@@ -1,0 +1,6 @@
+D:\Insurance\Insurance\Insurance.Angular\obj\Debug\netcoreapp3.1\Insurance.Angular.csprojAssemblyReference.cache
+D:\Insurance\Insurance\Insurance.Angular\obj\Debug\netcoreapp3.1\staticwebassets\Insurance.Angular.StaticWebAssets.Manifest.cache
+D:\Insurance\Insurance\Insurance.Angular\obj\Debug\netcoreapp3.1\staticwebassets\Insurance.Angular.StaticWebAssets.xml
+D:\Insurance\Insurance\Insurance.Angular\obj\Debug\netcoreapp3.1\Insurance.Angular.MvcApplicationPartsAssemblyInfo.cache
+D:\Insurance\Insurance\Insurance.Angular\obj\Debug\netcoreapp3.1\Insurance.Angular.AssemblyInfoInputs.cache
+D:\Insurance\Insurance\Insurance.Angular\obj\Debug\netcoreapp3.1\Insurance.Angular.AssemblyInfo.cs

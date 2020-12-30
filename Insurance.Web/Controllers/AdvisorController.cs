@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Insurance.BusinessLogicLayer;
 using Insurance.Entity;
+using Insurance.Service;
 using Insurance.Web.Model;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,10 +16,10 @@ namespace Insurance.Web.Controllers
     [ApiController]
     public class AdvisorController : ControllerBase
     {
-        private readonly IWrapperRepository _repoWrapper;
-        public AdvisorController(IWrapperRepository repoWrapper)
+        private readonly IAdvisorService _serAdvisor;
+        public AdvisorController(IAdvisorService serAdvisor)
         {
-            _repoWrapper = repoWrapper;
+            _serAdvisor = serAdvisor;
         }
 
 
@@ -27,7 +29,7 @@ namespace Insurance.Web.Controllers
         {
             try
             {
-                var _advisors = _repoWrapper.Advisor.FindAll();
+                var _advisors = _serAdvisor.FindAll();
 
 
                 int _total = _advisors.Count();
@@ -93,15 +95,15 @@ namespace Insurance.Web.Controllers
                 if (model.Id == 0)
                 {
 
-                    _advisor = _repoWrapper.Advisor.Create(_advisor);
-                    _repoWrapper.Save();
+                    _advisor = _serAdvisor.CreateWithSaveChange(_advisor);
+        
                 }
                 else
                 {
                     _advisor.Id = model.Id;
                     _advisor.HealthStatus = model.HealthStatus;
-                    _repoWrapper.Advisor.Update(_advisor);
-                    _repoWrapper.Save();
+                    _serAdvisor.UpdateWithSaveChange(_advisor);
+
                 }
                 return Ok();
             }
@@ -116,7 +118,7 @@ namespace Insurance.Web.Controllers
         {
             try
             {
-                var _advisor = _repoWrapper.Advisor.FindByCondition(x => x.Id == id).FirstOrDefault();
+                var _advisor = _serAdvisor.FindByCondition(x => x.Id == id).FirstOrDefault();
                 if (_advisor != null)
                 {
                     var _advisorView = new AdvisorView()
@@ -146,14 +148,13 @@ namespace Insurance.Web.Controllers
         {
             try
             {
-                var _advisor = _repoWrapper.Advisor.FindByCondition(x => x.Id == id).FirstOrDefault();
+                var _advisor = _serAdvisor.FindByCondition(x => x.Id == id).FirstOrDefault();
                 if (_advisor == null)
                 { return BadRequest("User object is null"); }
                 else
                 {
 
-                    _repoWrapper.Advisor.Delete(_advisor);
-                    _repoWrapper.Save();
+                    _serAdvisor.DeleteWithSaveChange(_advisor);
                     return Ok();
                 }
             }

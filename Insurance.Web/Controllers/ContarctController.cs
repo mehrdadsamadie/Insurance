@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Insurance.BusinessLogicLayer;
 using Insurance.Entity;
+using Insurance.Service;
 using Insurance.Web.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +15,10 @@ namespace Insurance.Web.Controllers
     [ApiController]
     public class ContarctController : ControllerBase
     {
-        private readonly IWrapperRepository _repoWrapper;
-        public ContarctController(IWrapperRepository repoWrapper)
+        private readonly IContractService _serContract;
+        public ContarctController(IContractService serContract)
         {
-            _repoWrapper = repoWrapper;
+            _serContract = serContract;
         }
 
 
@@ -49,8 +50,8 @@ namespace Insurance.Web.Controllers
                     AdvisorId = model.AdvisorId,
                     MGAId = model.MGAId,
                 };
-                var _directcontract = _repoWrapper.Contract.FindByCondition(x => x.CarrierId == model.CarrierId && x.MGAId == model.MGAId && x.AdvisorId == model.AdvisorId).FirstOrDefault();
-                var _indirectcontract = _repoWrapper.Contract.GetIndirect(_contract);
+                var _directcontract = _serContract.FindByCondition(x => x.CarrierId == model.CarrierId && x.MGAId == model.MGAId && x.AdvisorId == model.AdvisorId).FirstOrDefault();
+                var _indirectcontract = _serContract.GetIndirect(_contract);
                 var ContractList = new ContractList();
                 if (_directcontract != null)
                 {
@@ -121,8 +122,7 @@ namespace Insurance.Web.Controllers
                 };
 
 
-                _advisor = _repoWrapper.Contract.Create(_advisor);
-                _repoWrapper.Save();
+                _advisor = _serContract.CreateWithSaveChange(_advisor);
 
                 return Ok();
             }
@@ -137,14 +137,14 @@ namespace Insurance.Web.Controllers
         {
             try
             {
-                var _contract = _repoWrapper.Contract.FindByCondition(x => x.Id == id).FirstOrDefault();
+                var _contract = _serContract.FindByCondition(x => x.Id == id).FirstOrDefault();
                 if (_contract == null)
                 { return BadRequest("User object is null"); }
                 else
                 {
 
-                    _repoWrapper.Contract.Delete(_contract);
-                    _repoWrapper.Save();
+                    _serContract.DeleteWithSaveChange(_contract);
+
                     return Ok();
                 }
             }

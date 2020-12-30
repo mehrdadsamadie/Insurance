@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Insurance.BusinessLogicLayer;
 using Insurance.Entity;
+using Insurance.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using static Insurance.Web.Model.MGAViewModel;
@@ -14,10 +15,10 @@ namespace Insurance.Web.Controllers
     [ApiController]
     public class MGAController : ControllerBase
     {
-        private readonly IWrapperRepository _repoWrapper;
-        public MGAController(IWrapperRepository repoWrapper)
+        private readonly IMGAService _serMGA;
+        public MGAController(IMGAService serMGA)
         {
-            _repoWrapper = repoWrapper;
+            _serMGA = serMGA;
         }
 
         [HttpGet("{page?}/{pageSize?}")]
@@ -26,7 +27,7 @@ namespace Insurance.Web.Controllers
         {
             try
             {
-                var _MGAs = _repoWrapper.MGA.FindAll();
+                var _MGAs = _serMGA.FindAll();
 
 
                 int _total = _MGAs.Count();
@@ -88,14 +89,13 @@ namespace Insurance.Web.Controllers
                 if (model.Id == 0)
                 {
 
-                    _MGA = _repoWrapper.MGA.Create(_MGA);
-                    _repoWrapper.Save();
+                    _MGA = _serMGA.CreateWithSaveChange(_MGA);
+
                 }
                 else
                 {
                     _MGA.Id = model.Id;
-                    _repoWrapper.MGA.Update(_MGA);
-                    _repoWrapper.Save();
+                    _serMGA.UpdateWithSaveChange(_MGA);
                 }
                 return Ok();
             }
@@ -109,7 +109,7 @@ namespace Insurance.Web.Controllers
         {
             try
             {
-                var _MGA = _repoWrapper.MGA.FindByCondition(x => x.Id == id).FirstOrDefault();
+                var _MGA = _serMGA.FindByCondition(x => x.Id == id).FirstOrDefault();
                 if (_MGA != null)
                 {
                     var _contactView = new MGAView()
@@ -138,14 +138,13 @@ namespace Insurance.Web.Controllers
         {
             try
             {
-                var _MGA = _repoWrapper.MGA.FindByCondition(x => x.Id == id).FirstOrDefault();
+                var _MGA = _serMGA.FindByCondition(x => x.Id == id).FirstOrDefault();
                 if (_MGA == null)
                 { return BadRequest("User object is null"); }
                 else
                 {
 
-                    _repoWrapper.MGA.Delete(_MGA);
-                    _repoWrapper.Save();
+                    _serMGA.DeleteWithSaveChange(_MGA);
                     return Ok();
                 }
             }

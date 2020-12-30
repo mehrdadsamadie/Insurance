@@ -454,6 +454,7 @@ __webpack_require__.r(__webpack_exports__);
 class CarrierService {
     constructor(http) {
         this.http = http;
+        //readonly APIUrl = "https://insuranceapp.azurewebsites.net/api/";
         this.APIUrl = "https://localhost:44304/api/";
         this.carrierList = new _model_carrier_model__WEBPACK_IMPORTED_MODULE_2__["CarrierList"]();
         this.gridValue = new _model_grid_value_model__WEBPACK_IMPORTED_MODULE_1__["GridValue"]();
@@ -1241,6 +1242,7 @@ __webpack_require__.r(__webpack_exports__);
 class MgaService {
     constructor(http) {
         this.http = http;
+        //readonly APIUrl = "https://insuranceapp.azurewebsites.net/api/";
         this.APIUrl = "https://localhost:44304/api/";
         this.mgaList = new _model_mga_model__WEBPACK_IMPORTED_MODULE_2__["MgaList"]();
         this.gridValue = new _model_grid_value_model__WEBPACK_IMPORTED_MODULE_1__["GridValue"]();
@@ -1562,6 +1564,7 @@ __webpack_require__.r(__webpack_exports__);
 class ContractService {
     constructor(http) {
         this.http = http;
+        //readonly APIUrl = "https://insuranceapp.azurewebsites.net/api/";
         this.APIUrl = "https://localhost:44304/api/";
         this.contractList = { Direct: null, IndirectList: null };
     }
@@ -1909,6 +1912,7 @@ __webpack_require__.r(__webpack_exports__);
 class AdvisorService {
     constructor(http) {
         this.http = http;
+        //readonly APIUrl = "https://insuranceapp.azurewebsites.net/api/";
         this.APIUrl = "https://localhost:44304/api/";
         this.advisorList = new _model_advisor_model__WEBPACK_IMPORTED_MODULE_2__["AdvisorList"]();
         this.gridValue = new _model_grid_value_model__WEBPACK_IMPORTED_MODULE_1__["GridValue"]();

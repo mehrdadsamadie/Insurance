@@ -1,7 +1,6 @@
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\appsettings.json
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\libman.json
-D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\Insurance.Web.exe
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\Insurance.Web.deps.json
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\Insurance.Web.runtimeconfig.json
@@ -47,7 +46,6 @@ D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\Microsoft.VisualStu
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
@@ -60,7 +58,6 @@ D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\System.Composition.
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
-D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
@@ -126,9 +123,6 @@ D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\runtimes\win-x64\na
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
-D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\Insurance.BusinessLogicLayer.dll
@@ -147,3 +141,11 @@ D:\Insurance\Insurance\Insurance.Web\obj\Debug\netcoreapp3.1\Insurance.Web.cspro
 D:\Insurance\Insurance\Insurance.Web\obj\Debug\netcoreapp3.1\Insurance.Web.dll
 D:\Insurance\Insurance\Insurance.Web\obj\Debug\netcoreapp3.1\Insurance.Web.pdb
 D:\Insurance\Insurance\Insurance.Web\obj\Debug\netcoreapp3.1\Insurance.Web.MvcApplicationPartsAssemblyInfo.cache
+D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\Insurance.Service.dll
+D:\Insurance\Insurance\Insurance.Web\bin\Debug\netcoreapp3.1\Insurance.Service.pdb

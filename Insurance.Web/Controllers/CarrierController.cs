@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Insurance.BusinessLogicLayer;
 using Insurance.Entity;
+using Insurance.Service;
 using Insurance.Web.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +15,10 @@ namespace Insurance.Web.Controllers
     [ApiController]
     public class CarrierController : ControllerBase
     {
-        private readonly IWrapperRepository _repoWrapper;
-        public CarrierController(IWrapperRepository repoWrapper)
+        private readonly ICarrierService _serCarrier;
+        public CarrierController(ICarrierService serCarrier)
         {
-            _repoWrapper = repoWrapper;
+            _serCarrier = serCarrier;
         }
 
         [HttpGet("{page?}/{pageSize?}")]
@@ -25,7 +26,7 @@ namespace Insurance.Web.Controllers
         {
             try
             {
-                var _carriers = _repoWrapper.Carrier.FindAll();
+                var _carriers = _serCarrier.FindAll();
                 int _total = _carriers.Count();
 
                 if (_carriers != null)
@@ -87,14 +88,12 @@ namespace Insurance.Web.Controllers
                 if (model.Id == 0)
                 {
                     
-                    _carrier = _repoWrapper.Carrier.Create(_carrier);
-                    _repoWrapper.Save();
+                    _carrier = _serCarrier.CreateWithSaveChange(_carrier);
                 }
                 else
                 {
                     _carrier.Id = model.Id;
-                    _repoWrapper.Carrier.Update(_carrier);
-                    _repoWrapper.Save();
+                    _serCarrier.UpdateWithSaveChange(_carrier);
                 }
                 return Ok();
             }
@@ -112,7 +111,7 @@ namespace Insurance.Web.Controllers
         {
             try
             {
-                var _carrier = _repoWrapper.Carrier.FindByCondition(x => x.Id == id).FirstOrDefault();
+                var _carrier = _serCarrier.FindByCondition(x => x.Id == id).FirstOrDefault();
                 if (_carrier != null)
                 {
                     var _contactView = new CarrierView()
@@ -141,14 +140,13 @@ namespace Insurance.Web.Controllers
         {
             try
             {
-                var _carrier = _repoWrapper.Carrier.FindByCondition(x => x.Id == id).FirstOrDefault();
+                var _carrier = _serCarrier.FindByCondition(x => x.Id == id).FirstOrDefault();
                 if (_carrier == null)
                 { return BadRequest("User object is null"); }
                 else
                 {
 
-                    _repoWrapper.Carrier.Delete(_carrier);
-                    _repoWrapper.Save();
+                    _serCarrier.DeleteWithSaveChange(_carrier);
                     return Ok();
                 }
             }

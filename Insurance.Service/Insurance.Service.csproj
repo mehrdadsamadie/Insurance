@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="IWrapperService.cs" />
+    <Compile Remove="WrapperService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Insurance.BusinessLogicLayer\Insurance.BusinessLogicLayer.csproj" />
+    <ProjectReference Include="..\Insurance.DataAccessLayer\Insurance.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\Insurance.Entity\Insurance.Entity.csproj" />
+  </ItemGroup>
+
+</Project>

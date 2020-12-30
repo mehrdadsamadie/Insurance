@@ -3,7 +3,6 @@ D:\Insurance\Insurance\Insurance.Entity\bin\Debug\netcoreapp3.1\Insurance.Entity
 D:\Insurance\Insurance\Insurance.Entity\bin\Debug\netcoreapp3.1\Insurance.Entity.runtimeconfig.dev.json
 D:\Insurance\Insurance\Insurance.Entity\bin\Debug\netcoreapp3.1\Insurance.Entity.dll
 D:\Insurance\Insurance\Insurance.Entity\bin\Debug\netcoreapp3.1\Insurance.Entity.pdb
-D:\Insurance\Insurance\Insurance.Entity\obj\Debug\netcoreapp3.1\Insurance.Entity.csprojAssemblyReference.cache
 D:\Insurance\Insurance\Insurance.Entity\obj\Debug\netcoreapp3.1\Insurance.Entity.AssemblyInfoInputs.cache
 D:\Insurance\Insurance\Insurance.Entity\obj\Debug\netcoreapp3.1\Insurance.Entity.AssemblyInfo.cs
 D:\Insurance\Insurance\Insurance.Entity\obj\Debug\netcoreapp3.1\Insurance.Entity.dll

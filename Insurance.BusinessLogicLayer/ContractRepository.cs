@@ -31,7 +31,7 @@ namespace Insurance.BusinessLogicLayer
             var _contract = base.FindByCondition(x => x.AdvisorId == entity.AdvisorId && x.CarrierId == entity.CarrierId && x.MGAId == entity.MGAId).FirstOrDefault();
             if (_contract != null)
             {
-                throw (new Exception(message: "Another Contract Exist"));
+                throw new Exception(message: "Another Contract Exist");
             }
         }
         public List<Contract> GetIndirect(Contract model)

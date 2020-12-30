@@ -1,0 +1,10 @@
+D:\Insurance\Insurance\Insurance.Entity\bin\Release\netcoreapp3.1\Insurance.Entity.deps.json
+D:\Insurance\Insurance\Insurance.Entity\bin\Release\netcoreapp3.1\Insurance.Entity.runtimeconfig.json
+D:\Insurance\Insurance\Insurance.Entity\bin\Release\netcoreapp3.1\Insurance.Entity.runtimeconfig.dev.json
+D:\Insurance\Insurance\Insurance.Entity\bin\Release\netcoreapp3.1\Insurance.Entity.dll
+D:\Insurance\Insurance\Insurance.Entity\bin\Release\netcoreapp3.1\Insurance.Entity.pdb
+D:\Insurance\Insurance\Insurance.Entity\obj\Release\netcoreapp3.1\Insurance.Entity.csprojAssemblyReference.cache
+D:\Insurance\Insurance\Insurance.Entity\obj\Release\netcoreapp3.1\Insurance.Entity.AssemblyInfoInputs.cache
+D:\Insurance\Insurance\Insurance.Entity\obj\Release\netcoreapp3.1\Insurance.Entity.AssemblyInfo.cs
+D:\Insurance\Insurance\Insurance.Entity\obj\Release\netcoreapp3.1\Insurance.Entity.dll
+D:\Insurance\Insurance\Insurance.Entity\obj\Release\netcoreapp3.1\Insurance.Entity.pdb
