@@ -62,5 +62,23 @@ namespace Insurance.UnitTest
             //Assert
             Assert.Single(newcarrier);
         }
+        [Fact]
+         public void CreateCaraier_ShouldReturNewCarrier()
+        {
+            //Arange
+            var _newCarrier = new Carrier()
+            {
+                BusinessName = "PC Optimo",
+                BusinessPhoneNumber="12896574"
+            };
+            _carrierRepositoryMok.Setup(x => x.Create(_newCarrier)).Returns(_newCarrier);
+
+            //Act
+            var _createdcarrier = _sut.CreateWithSaveChange(_newCarrier);
+            //Assert
+           
+            Assert.Equal(_newCarrier.BusinessName, _createdcarrier.BusinessName);
+            Assert.Equal(_newCarrier.BusinessPhoneNumber, _createdcarrier.BusinessPhoneNumber);
+        }
     }
 }

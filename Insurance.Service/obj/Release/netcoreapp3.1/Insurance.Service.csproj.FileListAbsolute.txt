@@ -1,0 +1,15 @@
+D:\Insurance\Insurance\Insurance.Service\bin\Release\netcoreapp3.1\Insurance.Service.deps.json
+D:\Insurance\Insurance\Insurance.Service\bin\Release\netcoreapp3.1\Insurance.Service.dll
+D:\Insurance\Insurance\Insurance.Service\bin\Release\netcoreapp3.1\Insurance.Service.pdb
+D:\Insurance\Insurance\Insurance.Service\bin\Release\netcoreapp3.1\Insurance.BusinessLogicLayer.dll
+D:\Insurance\Insurance\Insurance.Service\bin\Release\netcoreapp3.1\Insurance.DataAccessLayer.dll
+D:\Insurance\Insurance\Insurance.Service\bin\Release\netcoreapp3.1\Insurance.Entity.dll
+D:\Insurance\Insurance\Insurance.Service\bin\Release\netcoreapp3.1\Insurance.BusinessLogicLayer.pdb
+D:\Insurance\Insurance\Insurance.Service\bin\Release\netcoreapp3.1\Insurance.DataAccessLayer.pdb
+D:\Insurance\Insurance\Insurance.Service\bin\Release\netcoreapp3.1\Insurance.Entity.pdb
+D:\Insurance\Insurance\Insurance.Service\obj\Release\netcoreapp3.1\Insurance.Service.csprojAssemblyReference.cache
+D:\Insurance\Insurance\Insurance.Service\obj\Release\netcoreapp3.1\Insurance.Service.AssemblyInfoInputs.cache
+D:\Insurance\Insurance\Insurance.Service\obj\Release\netcoreapp3.1\Insurance.Service.AssemblyInfo.cs
+D:\Insurance\Insurance\Insurance.Service\obj\Release\netcoreapp3.1\Insurance.Service.csproj.CopyComplete
+D:\Insurance\Insurance\Insurance.Service\obj\Release\netcoreapp3.1\Insurance.Service.dll
+D:\Insurance\Insurance\Insurance.Service\obj\Release\netcoreapp3.1\Insurance.Service.pdb

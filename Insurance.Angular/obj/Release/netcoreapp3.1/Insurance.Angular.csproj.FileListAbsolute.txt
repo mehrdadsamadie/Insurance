@@ -1,0 +1,3 @@
+D:\Insurance\Insurance\Insurance.Angular\obj\Release\netcoreapp3.1\Insurance.Angular.csprojAssemblyReference.cache
+D:\Insurance\Insurance\Insurance.Angular\obj\Release\netcoreapp3.1\staticwebassets\Insurance.Angular.StaticWebAssets.Manifest.cache
+D:\Insurance\Insurance\Insurance.Angular\obj\Release\netcoreapp3.1\staticwebassets\Insurance.Angular.StaticWebAssets.xml

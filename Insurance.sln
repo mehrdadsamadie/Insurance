@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Insurance.Web", "Insurance.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Insurance.Angular", "Insurance.Angular\Insurance.Angular.csproj", "{8EBCB89B-B526-4937-B9D0-DEDE8665162B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insurance.UnitTest", "XUnitTestProject1\Insurance.UnitTest.csproj", "{41DA6BD2-6DCD-4EC7-8230-B73696197DCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Insurance.UnitTest", "XUnitTestProject1\Insurance.UnitTest.csproj", "{41DA6BD2-6DCD-4EC7-8230-B73696197DCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insurance.Service", "Insurance.Service\Insurance.Service.csproj", "{75C0FCB2-03F2-445A-9C31-4B5BD9BF238D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Insurance.Service", "Insurance.Service\Insurance.Service.csproj", "{75C0FCB2-03F2-445A-9C31-4B5BD9BF238D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

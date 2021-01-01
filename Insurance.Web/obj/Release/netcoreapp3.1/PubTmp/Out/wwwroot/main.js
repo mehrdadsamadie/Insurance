@@ -1563,6 +1563,7 @@ class ContractService {
     constructor(http) {
         this.http = http;
         this.APIUrl = "https://insuranceapp.azurewebsites.net/api/";
+        // readonly APIUrl = "https://localhost:44304/api/";
         this.contractList = { Direct: null, IndirectList: null };
     }
     getContract(contact) {

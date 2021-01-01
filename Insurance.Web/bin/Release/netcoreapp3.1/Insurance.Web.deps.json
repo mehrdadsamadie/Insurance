@@ -24,9 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "Insurance.Web/1.0.0": {
         "dependencies": {
-          "Insurance.BusinessLogicLayer": "1.0.0",
-          "Insurance.DataAccessLayer": "1.0.0",
-          "Insurance.Entity": "1.0.0",
+          "Insurance.Service": "1.0.0",
           "Microsoft.AspNet.WebApi": "5.2.7",
           "Microsoft.AspNetCore.Cors": "2.2.0",
           "Microsoft.EntityFrameworkCore.Design": "5.0.1",
@@ -2075,6 +2073,19 @@
         },
         "compile": {
           "Insurance.Entity.dll": {}
+        }
+      },
+      "Insurance.Service/1.0.0": {
+        "dependencies": {
+          "Insurance.BusinessLogicLayer": "1.0.0",
+          "Insurance.DataAccessLayer": "1.0.0",
+          "Insurance.Entity": "1.0.0"
+        },
+        "runtime": {
+          "Insurance.Service.dll": {}
+        },
+        "compile": {
+          "Insurance.Service.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -4703,6 +4714,11 @@
       "sha512": ""
     },
     "Insurance.Entity/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Insurance.Service/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
