@@ -77,6 +77,28 @@ namespace Insurance.DataAccessLayer.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<int>("FirstContractorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SecondContractorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FirstContractorId");
+
+                    b.HasIndex("SecondContractorId");
+
+                    b.ToTable("Contract");
+                });
+
+            modelBuilder.Entity("Insurance.Entity.FirstContractor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
                     b.Property<int?>("AdvisorId")
                         .HasColumnType("int");
 
@@ -94,7 +116,7 @@ namespace Insurance.DataAccessLayer.Migrations
 
                     b.HasIndex("MGAId");
 
-                    b.ToTable("Contract");
+                    b.ToTable("FirstContractor");
                 });
 
             modelBuilder.Entity("Insurance.Entity.MGA", b =>
@@ -119,22 +141,92 @@ namespace Insurance.DataAccessLayer.Migrations
                     b.ToTable("MGA");
                 });
 
+            modelBuilder.Entity("Insurance.Entity.SecondContractor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int?>("AdvisorId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CarrierId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MGAId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdvisorId");
+
+                    b.HasIndex("CarrierId");
+
+                    b.HasIndex("MGAId");
+
+                    b.ToTable("SecondContractor");
+                });
+
             modelBuilder.Entity("Insurance.Entity.Contract", b =>
                 {
-                    b.HasOne("Insurance.Entity.Advisor", "Advisor")
+                    b.HasOne("Insurance.Entity.FirstContractor", "FirstContractor")
                         .WithMany("Contracts")
+                        .HasForeignKey("FirstContractorId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Insurance.Entity.SecondContractor", "SecondContractor")
+                        .WithMany("Contracts")
+                        .HasForeignKey("SecondContractorId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("FirstContractor");
+
+                    b.Navigation("SecondContractor");
+                });
+
+            modelBuilder.Entity("Insurance.Entity.FirstContractor", b =>
+                {
+                    b.HasOne("Insurance.Entity.Advisor", "Advisor")
+                        .WithMany("FirstContractors")
                         .HasForeignKey("AdvisorId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("Insurance.Entity.Carrier", "Carrier")
-                        .WithMany("Contracts")
+                        .WithMany("FirstContractors")
                         .HasForeignKey("CarrierId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("Insurance.Entity.MGA", "MGA")
-                        .WithMany("Contracts")
+                        .WithMany("FirstContractors")
                         .HasForeignKey("MGAId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.Navigation("Advisor");
+
+                    b.Navigation("Carrier");
+
+                    b.Navigation("MGA");
+                });
+
+            modelBuilder.Entity("Insurance.Entity.SecondContractor", b =>
+                {
+                    b.HasOne("Insurance.Entity.Advisor", "Advisor")
+                        .WithMany("SecondContractors")
+                        .HasForeignKey("AdvisorId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.HasOne("Insurance.Entity.Carrier", "Carrier")
+                        .WithMany("SecondContractors")
+                        .HasForeignKey("CarrierId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.HasOne("Insurance.Entity.MGA", "MGA")
+                        .WithMany("SecondContractors")
+                        .HasForeignKey("MGAId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("Advisor");
 
@@ -145,15 +237,31 @@ namespace Insurance.DataAccessLayer.Migrations
 
             modelBuilder.Entity("Insurance.Entity.Advisor", b =>
                 {
-                    b.Navigation("Contracts");
+                    b.Navigation("FirstContractors");
+
+                    b.Navigation("SecondContractors");
                 });
 
             modelBuilder.Entity("Insurance.Entity.Carrier", b =>
+                {
+                    b.Navigation("FirstContractors");
+
+                    b.Navigation("SecondContractors");
+                });
+
+            modelBuilder.Entity("Insurance.Entity.FirstContractor", b =>
                 {
                     b.Navigation("Contracts");
                 });
 
             modelBuilder.Entity("Insurance.Entity.MGA", b =>
+                {
+                    b.Navigation("FirstContractors");
+
+                    b.Navigation("SecondContractors");
+                });
+
+            modelBuilder.Entity("Insurance.Entity.SecondContractor", b =>
                 {
                     b.Navigation("Contracts");
                 });

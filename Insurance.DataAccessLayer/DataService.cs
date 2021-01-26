@@ -20,7 +20,7 @@ namespace Insurance.DataAccessLayer
             return entity;
         }
 
-        public void DeleteWithSaveChange(T entity)
+        public virtual void  DeleteWithSaveChange(T entity)
         {
             this.dataRepository.Delete(entity);
             this.dataRepository.SaveChanges();

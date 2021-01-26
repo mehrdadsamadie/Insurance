@@ -8,6 +8,7 @@ namespace Insurance.Service
 {
     public interface IContractService:IDataService<Contract>
     {
-        public List<Contract> GetIndirect(Contract model);
+          public List<Contractor> GetShortestPath(Contractor source, Contractor destination);
+
     }
 }

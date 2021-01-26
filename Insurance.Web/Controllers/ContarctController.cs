@@ -22,117 +22,112 @@ namespace Insurance.Web.Controllers
         }
 
 
-        [HttpGet("{carrierId?}/{advisorId?}/{mgaId?}")]
+        [HttpGet("{firstCarrierId?}/{firstAdvisorId?}/{firstMgaId?}/{secondCarrierId?}/{secondAdvisorId?}/{secondMgaId?}")]
         [Produces("application/json")]
-        public IActionResult GET([FromQuery]string carrierId = null, [FromQuery]string advisorId = null, [FromQuery]string mgaId = null)
+        public IActionResult GET([FromQuery]string firstCarrierId, [FromQuery]string firstAdvisorId, [FromQuery]string firstMgaId, [FromQuery]string secondCarrierId, [FromQuery]string secondAdvisorId, [FromQuery]string secondMgaId)
         {
 
-            try
-            {
+         //   try
+        //    {
                 var model = new ContractCreate()
                 {
-                    CarrierId = (string.IsNullOrEmpty(carrierId) || carrierId.ToLower() == "null") ? (int?)null : int.Parse(carrierId),
-                    AdvisorId = (string.IsNullOrEmpty(advisorId) || advisorId.ToLower() == "null") ? (int?)null : int.Parse(advisorId),
-                    MGAId = (string.IsNullOrEmpty(mgaId) || mgaId.ToLower() == "null") ? (int?)null : int.Parse(mgaId)
+                    FirstContractor = new Contractor()
+                    {
+                        CarrierId = (string.IsNullOrEmpty(firstCarrierId) || firstCarrierId.ToLower() == "null") ? (int?)null : int.Parse(firstCarrierId),
+                        AdvisorId = (string.IsNullOrEmpty(firstAdvisorId) || firstAdvisorId.ToLower() == "null") ? (int?)null : int.Parse(firstAdvisorId),
+                        MGAId = (string.IsNullOrEmpty(firstMgaId) || firstMgaId.ToLower() == "null") ? (int?)null : int.Parse(firstMgaId)
+                    },
+                    SecondContractor = new Contractor()
+                    {
+                        CarrierId = (string.IsNullOrEmpty(secondCarrierId) || secondCarrierId.ToLower() == "null") ? (int?)null : int.Parse(secondCarrierId),
+                        AdvisorId = (string.IsNullOrEmpty(secondAdvisorId) || secondAdvisorId.ToLower() == "null") ? (int?)null : int.Parse(secondAdvisorId),
+                        MGAId = (string.IsNullOrEmpty(secondMgaId) || secondMgaId.ToLower() == "null") ? (int?)null : int.Parse(secondMgaId)
+                    }
                 };
-                if (model == null)
-                {
-                    return BadRequest("User object is null");
-                }
 
                 if (!TryValidateModel(model))
                 {
                     return BadRequest("Invalid model object");
                 }
-                var _contract = new Contract()
-                {
-                    CarrierId = model.CarrierId,
-                    AdvisorId = model.AdvisorId,
-                    MGAId = model.MGAId,
-                };
-                var _directcontract = _serContract.FindByCondition(x => x.CarrierId == model.CarrierId && x.MGAId == model.MGAId && x.AdvisorId == model.AdvisorId).FirstOrDefault();
-                var _indirectcontract = _serContract.GetIndirect(_contract);
-                var ContractList = new ContractList();
-                if (_directcontract != null)
-                {
-                    ContractList.Direct = new ContractResult()
-                    {
-                        Id = _directcontract.Id,
-                        AdvisorId = _directcontract.AdvisorId,
-                        AdvisorLastName = _directcontract.Advisor == null ? null : _directcontract.Advisor.LastName,
-                        AdvisorFirstName = _directcontract.Advisor == null ? null : _directcontract.Advisor.FirstName,
-                        MGAId = _directcontract.MGAId,
-                        MGABusinessName = _directcontract.MGA == null ? null : _directcontract.MGA.BusinessName,
-                        CarrierId = _directcontract.CarrierId,
-                        CarrierBusinessName = _directcontract.Carrier == null ? null : _directcontract.Carrier.BusinessName
-                    };
-                }
-                if (_indirectcontract.Count > 0)
-                {
-                    ContractList.IndirectList = _indirectcontract.Select(x => new ContractResult
-                    {
-                        AdvisorId = x.AdvisorId,
-                        AdvisorLastName = x.Advisor == null ? null : x.Advisor.LastName,
-                        AdvisorFirstName = x.Advisor == null ? null : x.Advisor.FirstName,
-                        MGAId = x.MGAId,
-                        MGABusinessName = x.MGA == null ? null : x.MGA.BusinessName,
-                        CarrierId = x.CarrierId,
-                        CarrierBusinessName = x.Carrier == null ? null : x.Carrier.BusinessName
-                    }).ToList();
-                }
-
-
-                return Ok(ContractList);
-            }
-            catch (Exception ex)
+                 var _path=_serContract.GetShortestPath(model.FirstContractor,model.SecondContractor);
+            if (_path.Count > 0)
             {
-                return StatusCode(500, $"Internal server error: {ex}");
+                if (_path.Count == 2)
+                {
+
+                }
+                else 
+                { }
             }
+                return Ok(_path);
+        //    }
+         //   catch (Exception ex)
+         //   {
+          //      return StatusCode(500, $"Internal server error: {ex}");
+            //}
         }
 
 
 
         [HttpPost]
-        public IActionResult Post([FromBody]ContractCreated model)
+        public IActionResult Post([FromBody]ContractCreateed model)
         {
-            var _model = new ContractCreate()
-            {
-                CarrierId = (string.IsNullOrEmpty(model.CarrierId) == true || model.CarrierId.ToLower() == "null" ? (int?)null : int.Parse(model.CarrierId)),
-                AdvisorId = (string.IsNullOrEmpty(model.AdvisorId) == true || model.AdvisorId.ToLower() == "null" ? (int?)null : int.Parse(model.AdvisorId)),
-                MGAId = (string.IsNullOrEmpty(model.MGAId) == true || model.MGAId.ToLower() == "null" ? (int?)null : int.Parse(model.MGAId)),
-            };
             try
             {
                 if (model == null)
-                {
+               {
                     return BadRequest("User object is null");
-                }
+               }
+                var _model = new ContractCreate()
+                {
+                    FirstContractor = new Contractor()
+                    {
+                        CarrierId = (string.IsNullOrEmpty(model.FirstContractor.CarrierId) == true || model.FirstContractor.CarrierId.ToLower() == "null" ? (int?)null : int.Parse(model.FirstContractor.CarrierId)),
+                        AdvisorId = (string.IsNullOrEmpty(model.FirstContractor.AdvisorId) == true || model.FirstContractor.AdvisorId.ToLower() == "null" ? (int?)null : int.Parse(model.FirstContractor.AdvisorId)),
+                        MGAId = (string.IsNullOrEmpty(model.FirstContractor.MGAId) == true || model.FirstContractor.MGAId.ToLower() == "null" ? (int?)null : int.Parse(model.FirstContractor.MGAId)),
+                    },
+                    SecondContractor = new Contractor()
+                    {
+                        CarrierId = (string.IsNullOrEmpty(model.SecondContractor.CarrierId) == true || model.SecondContractor.CarrierId.ToLower() == "null" ? (int?)null : int.Parse(model.SecondContractor.CarrierId)),
+                        AdvisorId = (string.IsNullOrEmpty(model.SecondContractor.AdvisorId) == true || model.SecondContractor.AdvisorId.ToLower() == "null" ? (int?)null : int.Parse(model.SecondContractor.AdvisorId)),
+                        MGAId = (string.IsNullOrEmpty(model.SecondContractor.MGAId) == true || model.SecondContractor.MGAId.ToLower() == "null" ? (int?)null : int.Parse(model.SecondContractor.MGAId)),
+                    }
+                };
 
                 if (!TryValidateModel(_model))
                 {
                     return BadRequest("Invalid model object");
                 }
-                var _advisor = new Contract()
+                var _contract = new Contract()
                 {
-
-                    AdvisorId = _model.AdvisorId,
-                    CarrierId = _model.CarrierId,
-                    MGAId = _model.MGAId,
+                    FirstContractor= new FirstContractor()
+                    {
+                        AdvisorId = _model.FirstContractor.AdvisorId,
+                        CarrierId = _model.FirstContractor.CarrierId,
+                        MGAId = _model.FirstContractor.MGAId,
+                    },
+                    SecondContractor = new SecondContractor()
+                    {
+                        AdvisorId = _model.SecondContractor.AdvisorId,
+                        CarrierId = _model.SecondContractor.CarrierId,
+                        MGAId = _model.SecondContractor.MGAId,
+                    }
 
                 };
 
 
-                _advisor = _serContract.CreateWithSaveChange(_advisor);
+                _contract = _serContract.CreateWithSaveChange(_contract);
+             
 
                 return Ok();
-            }
+           }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Internal server error: {ex}");
-            }
+               return StatusCode(500, $"Internal server error: {ex}");
+           }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         public IActionResult Delete(int id)
         {
             try

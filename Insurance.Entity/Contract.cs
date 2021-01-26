@@ -7,23 +7,14 @@ using System.Text;
 namespace Insurance.Entity
 {
     [Table("Contract")]
-    public class Contract
+     public class Contract
     {
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
-        [ForeignKey("FK_Contract_Advisor")]
-        public int? AdvisorId { get; set; }
-
-        [ForeignKey("FK_Contract_Carrier")]
-        public int? CarrierId { get; set; }
-
-        [ForeignKey("FK_Contract_MGA")]
-        public int? MGAId { get; set; }
-        public virtual MGA MGA { get; set; }
-        public virtual Carrier Carrier { get; set; }
-        public virtual Advisor Advisor { get; set; }
+        public int FirstContractorId { get; set; }
+        public int SecondContractorId { get; set; }
+        public FirstContractor FirstContractor { get; set; }
+        public SecondContractor SecondContractor { get; set; }
     }
 }

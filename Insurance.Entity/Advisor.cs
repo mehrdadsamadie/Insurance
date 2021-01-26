@@ -36,7 +36,8 @@ namespace Insurance.Entity
         public string PhoneNumber { get; set; }
         [Column(TypeName = "varchar(10)")]
         public string HealthStatus { get; set; }
-        public virtual ICollection<Contract> Contracts { get; set; }
+        public virtual ICollection<FirstContractor> FirstContractors { get; set; }
+        public virtual ICollection<SecondContractor> SecondContractors { get; set; }
 
     }
 }

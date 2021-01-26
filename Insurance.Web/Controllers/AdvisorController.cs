@@ -108,9 +108,9 @@ namespace Insurance.Web.Controllers
                 return Ok();
             }
             catch (Exception ex)
-            {
+           {
                 return StatusCode(500, $"Internal server error: {ex}");
-            }
+           }
         }
         [HttpGet("{id}")]
 
@@ -153,7 +153,7 @@ namespace Insurance.Web.Controllers
                 { return BadRequest("User object is null"); }
                 else
                 {
-
+                    
                     _serAdvisor.DeleteWithSaveChange(_advisor);
                     return Ok();
                 }

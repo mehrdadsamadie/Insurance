@@ -22,6 +22,7 @@ namespace Insurance.Entity
 
         [Column(TypeName = "nvarchar(256)")]
         public string BusinessPhoneNumber { get; set; }
-        public virtual ICollection<Contract> Contracts { get; set; }
+        public virtual ICollection<FirstContractor> FirstContractors { get; set; }
+        public virtual ICollection<SecondContractor> SecondContractors { get; set; }
     }
 }

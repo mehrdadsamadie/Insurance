@@ -8,6 +8,7 @@ namespace Insurance.BusinessLogicLayer
 {
     public interface IContractRepository:IDataRepository<Contract>
     {
-        public List<Contract> GetIndirect (Contract model);
+        public void DeleteWithContactor(IContractor contactor);
+        public Contract FindByContractor(IContractor firstContractor, IContractor secondContractor);
     }
 }

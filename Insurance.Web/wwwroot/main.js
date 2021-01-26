@@ -454,7 +454,8 @@ __webpack_require__.r(__webpack_exports__);
 class CarrierService {
     constructor(http) {
         this.http = http;
-        this.APIUrl = "https://insuranceapp.azurewebsites.net/api/";
+        //readonly APIUrl = "https://insuranceapp.azurewebsites.net/api/";
+        this.APIUrl = "https://localhost:44304/api/";
         this.carrierList = new _model_carrier_model__WEBPACK_IMPORTED_MODULE_2__["CarrierList"]();
         this.gridValue = new _model_grid_value_model__WEBPACK_IMPORTED_MODULE_1__["GridValue"]();
     }
@@ -1025,7 +1026,7 @@ function ContractComponent_div_47_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r5.contractService.contractList.IndirectList);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r5.contractService.contractList.Indirect);
 } }
 function ContractComponent_li_49_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 24);
@@ -1074,7 +1075,7 @@ class ContractComponent {
         }, err => {
             this.restForm(form);
             this.contractService.contractList.Direct = null;
-            this.contractService.contractList.IndirectList.length = 0;
+            this.contractService.contractList.Indirect;
             console.log(err.error.errors);
             this.parseErrors(err.error.errors);
         });
@@ -1202,7 +1203,7 @@ ContractComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.contractService.contractList.Direct != null);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.contractService.contractList.IndirectList != null);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.contractService.contractList.Indirect != null);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.errorList);
     } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["SelectControlValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgModel"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgSelectOption"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ɵangular_packages_forms_forms_x"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjb250cmFjdC5jb21wb25lbnQuY3NzIn0= */"] });
@@ -1241,7 +1242,8 @@ __webpack_require__.r(__webpack_exports__);
 class MgaService {
     constructor(http) {
         this.http = http;
-        this.APIUrl = "https://insuranceapp.azurewebsites.net/api/";
+        //readonly APIUrl = "https://insuranceapp.azurewebsites.net/api/";
+        this.APIUrl = "https://localhost:44304/api/";
         this.mgaList = new _model_mga_model__WEBPACK_IMPORTED_MODULE_2__["MgaList"]();
         this.gridValue = new _model_grid_value_model__WEBPACK_IMPORTED_MODULE_1__["GridValue"]();
     }
@@ -1562,9 +1564,9 @@ __webpack_require__.r(__webpack_exports__);
 class ContractService {
     constructor(http) {
         this.http = http;
-        this.APIUrl = "https://insuranceapp.azurewebsites.net/api/";
-        // readonly APIUrl = "https://localhost:44304/api/";
-        this.contractList = { Direct: null, IndirectList: null };
+        // readonly APIUrl = "https://insuranceapp.azurewebsites.net/api/";
+        this.APIUrl = "https://localhost:44304/api/";
+        this.contractList = { Direct: null, Indirect: null };
     }
     getContract(contact) {
         let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]().set('carrierId', contact.CarrierId == null ? '' : contact.CarrierId.toString())

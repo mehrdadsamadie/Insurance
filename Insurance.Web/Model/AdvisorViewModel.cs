@@ -22,6 +22,7 @@ namespace Insurance.Web.Model
         [DisplayName("Address")]
         public string Address { get; set; }
         [DisplayName("Phone Number")]
+        [MaxLength(10)]
         public string PhoneNumber { get; set; }
         [DisplayName("Health Status")]
         public string HealthStatus { get; set; }
