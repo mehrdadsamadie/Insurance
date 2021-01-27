@@ -130,6 +130,7 @@ namespace Insurance.Web.Controllers
             }
             catch
             {
+
                 return StatusCode(500, "Internal server error");
             }
 
