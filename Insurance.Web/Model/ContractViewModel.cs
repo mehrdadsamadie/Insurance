@@ -30,21 +30,23 @@ namespace Insurance.Web.Model
         public ContractorCreated SecondContractor { get; set; }
     }
 
-    public class ContractResult
+    public class ContractorResult
     {
-        public int? Id { get; set; }
-        public int? AdvisorId { get; set; }
-        public string AdvisorLastName { get; set; }
-        public string AdvisorFirstName { get; set; }
-        public int? MGAId { get; set; }
+        public int AdvisorId { get; set; }
+        public int MGAId { get; set; }
         public string MGABusinessName { get; set; }
-        public int? CarrierId { get; set; }
+        public int CarrierId { get; set; }
         public string CarrierBusinessName { get; set; }
+        public string AdvisorFullName { get;  set; }
     }
     public class ContractList
     {
-        public ContractResult Direct { get; set; }
-        public ContractResult IndirectList { get; set; }
+        public ContractList() 
+        {
+            Contractors = new List<ContractorResult>();
+        }
+        public int? ContractId { get; set; }
+        public List<ContractorResult> Contractors { get; set; }
     }
     public class ContractParticipantAttribute : ValidationAttribute
     {

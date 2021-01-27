@@ -28,11 +28,16 @@ namespace Insurance.Service
                 var newfirstcontractor = new Contractor() { AdvisorId = item.FirstContractor.AdvisorId, CarrierId = item.FirstContractor.CarrierId, MGAId = item.FirstContractor.MGAId };
                 var newsecondcontractor = new Contractor() { AdvisorId = item.SecondContractor.AdvisorId, CarrierId = item.SecondContractor.CarrierId, MGAId = item.SecondContractor.MGAId };
                 graph.AddEdge(newfirstcontractor, newsecondcontractor);
+               
             }
             var stack = graph.ShortestPath(source, destination);
 
             return stack.ToList();
 
+        }
+        public Contract FindByContractor(IContractor firstContractor, IContractor secondContractor) 
+        {
+            return this.iContractRepository.FindByContractor(firstContractor, secondContractor);
         }
 
     }

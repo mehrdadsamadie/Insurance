@@ -16,9 +16,16 @@ namespace Insurance.Web.Controllers
     public class ContarctController : ControllerBase
     {
         private readonly IContractService _serContract;
-        public ContarctController(IContractService serContract)
+        private readonly IAdvisorService _serAdvisor;
+        private readonly IMGAService _serMGA;
+        private readonly ICarrierService _serCarrier;
+        public ContarctController(IContractService serContract, IAdvisorService serAdvisor, IMGAService serMGA, ICarrierService serCarrier)
         {
             _serContract = serContract;
+            _serAdvisor = serAdvisor;
+            _serCarrier = serCarrier;
+            _serMGA = serMGA;
+
         }
 
 
@@ -27,8 +34,8 @@ namespace Insurance.Web.Controllers
         public IActionResult GET([FromQuery]string firstCarrierId, [FromQuery]string firstAdvisorId, [FromQuery]string firstMgaId, [FromQuery]string secondCarrierId, [FromQuery]string secondAdvisorId, [FromQuery]string secondMgaId)
         {
 
-         //   try
-        //    {
+            try
+           {
                 var model = new ContractCreate()
                 {
                     FirstContractor = new Contractor()
@@ -50,21 +57,53 @@ namespace Insurance.Web.Controllers
                     return BadRequest("Invalid model object");
                 }
                  var _path=_serContract.GetShortestPath(model.FirstContractor,model.SecondContractor);
+            var result = new ContractList();
             if (_path.Count > 0)
             {
                 if (_path.Count == 2)
                 {
-
+                    var _contract = _serContract.FindByContractor(_path[0],_path[1]);
+                    result.ContractId = _contract.Id;
                 }
-                else 
-                { }
+                foreach(var item in _path) 
+                {
+                    var _contractor = new ContractorResult();
+                    if (item.AdvisorId != null) 
+                    {
+                        var _advisor = _serAdvisor.FindByCondition(x => x.Id == item.AdvisorId.Value).FirstOrDefault();
+                        if (_advisor != null) {
+                            _contractor.AdvisorId = _advisor.Id;
+                            _contractor.AdvisorFullName= _advisor.FirstName + " " + _advisor.LastName;
+                                }
+                    }
+                    else if(item.CarrierId!=null)
+                    {
+                        var _carrier = _serCarrier.FindByCondition(x => x.Id == item.CarrierId.Value).FirstOrDefault();
+                        if (_carrier != null)
+                        {
+                            _contractor.CarrierId = _carrier.Id;
+                            _contractor.CarrierBusinessName = _carrier.BusinessName;
+                        }
+                    }
+                    else if (item.MGAId != null) 
+                    {
+                        var _mga = _serMGA.FindByCondition(x => x.Id == item.MGAId.Value).FirstOrDefault();
+                        if (_mga != null)
+                        {
+                            _contractor.MGAId = _mga.Id;
+                            _contractor.MGABusinessName = _mga.BusinessName;
+                        }
+                    }
+                    result.Contractors.Add(_contractor);
+                    
+                }
             }
-                return Ok(_path);
-        //    }
-         //   catch (Exception ex)
-         //   {
-          //      return StatusCode(500, $"Internal server error: {ex}");
-            //}
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex}");
+            }
         }
 
 

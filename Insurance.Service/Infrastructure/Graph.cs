@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Insurance.Service.Infrastructure
 {
-    public class Graph<T> where T : Contractor
+    public class Graph<T> where T : IContractor
     {
         private readonly Dictionary<T, List<T>> _adj;
 
@@ -52,7 +52,7 @@ namespace Insurance.Service.Infrastructure
             }
             var res = new Stack<T>();
             var cur = dest;
-            while (cur != source)
+            while (!(cur.MGAId == source.MGAId && cur.AdvisorId == source.AdvisorId && cur.CarrierId == source.CarrierId))
             {
                 res.Push(cur);
 
